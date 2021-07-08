@@ -1,4 +1,4 @@
-# Font Awesome Icon Picker
+# Font Awesome Icon Picker🐥
 
 Der Iconpicker wird an Text-Eingabefelder angebunden. Beim Klick öffnet sich ein **Picker Widget**. Anschließend werden die Icons des **aktuell eingestellten
  Pakets** dynamisch nachgeladen. Über die Einstellungen zu Zeilen und Spalten im Picker Widget kann der Picker beim Scrollen kalkulieren, welche Seite vom
