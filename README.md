@@ -1,2 +1,1 @@
-# fa_iconpicker
-Font Awesome Icon Picker
+# 🐥Font Awesome Icon Picker
