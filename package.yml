@@ -1,0 +1,45 @@
+package: fa_iconpicker
+version: '0.3 beta'
+author: Friends Of REDAXO
+pjax: false
+#supportpage: https://github.com/FriendsOfREDAXO/fa-iconpicker
+
+page:
+    title: translate:name
+    perm: fa_iconpicker[settings]
+    icon: rex-icon fa fas fa-asterisk
+    pjax: true
+    subpages:
+        packages:
+            title: translate:fa_iconpicker_packages
+            icon: rex-icon fa fas fa-archive
+        settings:
+            title: translate:fa_iconpicker_settings
+            icon: rex-icon fa fas fa-cog
+        readme:
+            title: translate:fa_iconpicker_readme
+            subPath: README.md
+            icon: rex-icon fa fas fa-book
+            itemclass: pull-right
+
+requires:
+    php:
+        extensions: [zip]
+    redaxo: ^5.10
+
+# when installing new packages ...
+
+# keep svg folder
+keep-svgs: false
+# keep sprites folder
+keep-sprites: false
+# keep js folder
+keep-js: false
+# keep js packages folder [subsets]
+keep-js-packages: false
+# keep less folder
+keep-less: false
+# keep scss folder
+keep-scss: true
+# keep otfs folder [subsets]
+keep-otfs: true

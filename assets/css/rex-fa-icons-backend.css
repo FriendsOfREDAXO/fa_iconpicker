@@ -1,0 +1,810 @@
+/**
+ * package list
+ */
+
+:root {
+    --fa-iconpicker-row-height: 38px;
+    --fa-iconpicker-button-size: 36px;
+    --fa-iconpicker-button-gap: calc(var(--fa-iconpicker-row-height) - var(--fa-iconpicker-button-size));
+    --fa-iconpicker-button-margin: calc(var(--fa-iconpicker-button-gap) / 2);
+    --fa-iconpicker-default-transition: all 300ms ease-in-out;
+    --fa-iconpicker-default-boxshadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+
+    --fa-iconpicker-label-color: #999999;
+    --fa-iconpicker-border-color: #CCCCCC;
+    --fa-iconpicker-border-radius: 5px;
+    --fa-iconpicker-background-color: #fdfbf9;
+    --fa-iconpicker-default-font-size: 14px;
+    --fa-iconpicker-package-subset-background-color: #4b9ad9;
+
+    --fa-iconpicker-button-font-size: calc(var(--fa-iconpicker-button-size) - 15px);
+    --fa-iconpicker-button-color: #333333;
+    --fa-iconpicker-button-border-color: #BBBBBB;
+    --fa-iconpicker-button-border-radius: 4px;
+    --fa-iconpicker-button-background-color: #F8F8F8;
+    --fa-iconpicker-button-hover-border-color: #4b9ad9;
+    --fa-iconpicker-button-hover-background-color: #FFFFFF;
+    --fa-iconpicker-button-active-color: #000000;
+    --fa-iconpicker-button-active-border-color: #4b9ad9;
+    --fa-iconpicker-button-active-background-color: #e0f1ff;
+
+    --fa-iconpicker-search-active-color: #000000;
+    --fa-iconpicker-icons-count-color: #777777;
+    --fa-iconpicker-package-info-background-color: #FEFEFE;
+    --fa-iconpicker-package-info-border-color: #EEEEEE;
+    --fa-iconpicker-package-info-subset-color: #4b9ad9;
+    --fa-iconpicker-details-background-color: #FEFEFE;
+
+    --fa-iconpicker-icons-placeholder-square: #EEEEEE;
+}
+
+@keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper thead th {
+    border-bottom: none;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper .actions .btn {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td {
+    background-color: #eefff2 !important;
+    border-style: solid;
+    border-color: #01a01e;
+    border-width: 1px 0px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td:first-child {
+    border-left-width: 5px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td:last-child {
+    border-right-width: 1px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper .subset {
+    display: inline-block;
+    vertical-align: text-top;
+    margin-left: 5px;
+    background-color: var(--fa-iconpicker-package-subset-background-color);
+    color: #FFF;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 99px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    cursor: default;
+    margin-top: 1px;
+}
+
+/**
+ * dropzone / upload
+ */
+#rex-page-fa-iconpicker-packages form.dropzone {
+    border: 2px dashed #4b9ad9;
+    padding: 15px;
+    min-height: auto;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview {
+    width: 100%;
+    display: block;
+    margin: 0px 0px 15px 0px;
+    background-color: #F3F3F3;
+    padding: 15px;
+    min-height: unset;
+    border: 1px solid #F3F3F3;
+
+    transition: all 300ms linear;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview.dz-error {
+    background-color: #f6e6e6;
+    border-color: #b30000;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview.dz-success {
+    background-color: #eefff2;
+    border-color: #01a01e;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-error-message,
+#rex-page-fa-iconpicker-packages form.dropzone .dz-success-message {
+    position: static;
+    opacity: 1;
+    display: block;
+    background-color: transparent;
+    background: transparent;
+    margin-top: 8px;
+    padding: 0px;
+    width: 100%;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-error-message:after,
+#rex-page-fa-iconpicker-packages form.dropzone .dz-success-message:after {
+    display: none;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-error-message {
+    color: #b30000;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-success-message {
+    color: #01a01e;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview.dz-complete .dz-progress {
+    display: none;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview:last-child {
+    margin-bottom: 0px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-image,
+#rex-page-fa-iconpicker-packages form.dropzone .dz-success-mark,
+#rex-page-fa-iconpicker-packages form.dropzone .dz-error-mark,
+#rex-page-fa-iconpicker-packages form.dropzone .dz-preview.dz-success .dz-error-message {
+    display: none;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-details {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0px;
+    min-height: unset;
+    font-size: 14px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-details .dz-size {
+    margin: 0px 20px 0px 0px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-details .dz-size span {
+    background-color: transparent;
+    padding: 0px;
+    font-size: 14px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-details .dz-filename {
+    word-break: break-word;
+    overflow: unset;
+    text-overflow: unset;
+    white-space: unset;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-details .dz-filename span {
+    background-color: transparent;
+    border: none !important;
+    padding: 0px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-remove {
+    font-size: 13px;
+    text-align: left;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-progress {
+    position: static;
+    margin: 8px 0px 0px 0px;
+    border-radius: 0px;
+    width: 100%;
+    background-color: #FFF;
+    height: 8px;
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-progress .dz-upload {
+    background-color: #4b9ad9;
+    background: linear-gradient(to bottom, #4b9ad9, #4b9ad9);
+}
+
+#rex-page-fa-iconpicker-packages form.dropzone .dz-progress:not(.dz-processing) {
+    animation: unset;
+}
+
+#rex-page-fa-iconpicker-packages .dropzone-actions {
+    background-color: transparent;
+    padding-top: 20px;
+    border-top: none;
+}
+
+/**
+ * picker widget
+ */
+
+.fa-iconpicker-widget {
+    position: fixed;
+    z-index: 10;
+    top: -999px;
+    left:-999px;
+    border-bottom-left-radius: var(--fa-iconpicker-border-radius);
+    border-bottom-right-radius: var(--fa-iconpicker-border-radius);
+    border: 1px solid var(--fa-iconpicker-border-color);
+    box-shadow: var(--fa-iconpicker-default-boxshadow);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-inner {
+    position: relative;
+    z-index: 5;
+    background-color: var(--fa-iconpicker-background-color);
+    padding: 10px;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-inner > *:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-inner label,
+.fa-iconpicker-widget .fa-iconpicker-package-info,
+.fa-iconpicker-icon-details label {
+    display: block;
+    margin: 0px 0px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2pt;
+    color: var(--fa-iconpicker-label-color);
+    border-bottom: 1px solid var(--fa-iconpicker-border-color);
+    padding: 0px 0px 2px 10px;
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 4px);
+    font-weight: normal;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-package-info {
+    background-color: var(--fa-iconpicker-package-info-background-color);
+    margin: 0px;
+    padding: 3px 10px;
+    border: none;
+    border-top: 1px solid var(--fa-iconpicker-package-info-border-color);
+    text-align: center;
+    cursor: default;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-package-info span {
+    color: var(--fa-iconpicker-package-info-subset-color);
+    padding-left: 5px;
+}
+
+.fa-iconpicker-widget .hidden {
+    display: none !important;
+}
+
+.fa-iconpicker-widget .tooltip {
+    white-space: nowrap;
+    max-width: unset !important;
+    width: auto !important;
+    overflow: visible;
+}
+
+.fa-iconpicker-widget button,
+.fa-iconpicker-icon-details button {
+    width: var(--fa-iconpicker-button-size);
+    height: var(--fa-iconpicker-button-size);
+    margin: var(--fa-iconpicker-button-margin);
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px;
+    text-align: center;
+    color: var(--fa-iconpicker-button-color);
+    border-radius: 0px; /* var(--fa-iconpicker-button-border-radius); */
+    border: 1px solid var(--fa-iconpicker-button-border-color);
+    background-color: var(--fa-iconpicker-button-background-color);
+    font-size: var(--fa-iconpicker-button-font-size);
+    outline: none;
+    transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
+}
+
+.fa-iconpicker-widget button:not(.active):not([disabled]):hover,
+.fa-iconpicker-icon-details button:not(.active):not([disabled]):hover {
+    border-color: var(--fa-iconpicker-button-hover-border-color);
+    background-color: var(--fa-iconpicker-button-hover-background-color);
+}
+
+.fa-iconpicker-widget button.active,
+.fa-iconpicker-icon-details button.active {
+    color: var(--fa-iconpicker-button-active-color);
+    border-color: var(--fa-iconpicker-button-active-border-color);
+    background-color: var(--fa-iconpicker-button-active-background-color);
+    border-width: 2px;
+}
+
+/* sections */
+
+.fa-iconpicker-widget .fa-iconpicker-close,
+.fa-iconpicker-widget .fa-iconpicker-move,
+.fa-iconpicker-widget .fa-iconpicker-clear,
+.fa-iconpicker-widget .fa-iconpicker-weights {
+    position: absolute;
+    right: calc(100% - 1px);
+    z-index: 1;
+    top: -1px;
+    display: flex;
+    flex-direction: column;
+    padding: calc(10px - var(--fa-iconpicker-button-margin));
+    padding-right: 0px;
+    border-top-left-radius: var(--fa-iconpicker-border-radius);
+    border-bottom-left-radius: var(--fa-iconpicker-border-radius);
+    border: 1px solid var(--fa-iconpicker-border-color);
+    background-color: var(--fa-iconpicker-background-color);
+    box-shadow: var(--fa-iconpicker-default-boxshadow);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-weights button {
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 2px);
+    width: calc(var(--fa-iconpicker-button-size) - 4px);
+    height: calc(var(--fa-iconpicker-button-size) - 4px);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-weights button.active {
+    font-weight: bold;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-close,
+.fa-iconpicker-widget .fa-iconpicker-move,
+.fa-iconpicker-widget .fa-iconpicker-clear {
+    right: auto;
+    left: calc(100% - 1px);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: var(--fa-iconpicker-border-radius);
+    border-bottom-right-radius: var(--fa-iconpicker-border-radius);
+    padding: 2px 0px 0px 0px;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-close button,
+.fa-iconpicker-widget .fa-iconpicker-move button,
+.fa-iconpicker-widget .fa-iconpicker-clear button {
+    border: none !important;
+    background-color: transparent !important;
+    font-size: calc(var(--fa-iconpicker-default-font-size) + 2px);
+    color: var(--fa-iconpicker-button-hover-border-color);
+    opacity: 0.2;
+    transition: var(--fa-iconpicker-default-transition);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-move button:hover,
+.fa-iconpicker-widget .fa-iconpicker-close button:hover,
+.fa-iconpicker-widget .fa-iconpicker-clear button:hover {
+    opacity: 1;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-move button {
+    cursor: default;
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 1px);
+}
+
+.fa-iconpicker-widget.with-close-button.with-move-button .fa-iconpicker-move,
+.fa-iconpicker-widget.with-move-button:not(.with-close-button) .fa-iconpicker-clear,
+.fa-iconpicker-widget.with-close-button:not(.with-move-button) .fa-iconpicker-clear {
+    top: calc(var(--fa-iconpicker-button-size) + 7px);
+}
+
+.fa-iconpicker-widget.with-close-button.with-close-button.with-move-button .fa-iconpicker-clear {
+    top: calc(2 * var(--fa-iconpicker-button-size) + 2 * 7px + 1px);
+}
+
+.fa-iconpicker-widget.moved .fa-iconpicker-move {
+    color: var(--fa-iconpicker-button-active-color);
+    cursor: move !important;
+}
+
+.fa-iconpicker-widget.with-move-button.moving {
+    opacity: 0.8 !important;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-search input {
+    padding: 0px 20px 0px 0px;
+    text-indent: 10px;
+    border: 1px solid var(--fa-iconpicker-button-border-color);
+    background-color: var(--fa-iconpicker-button-background-color);
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 2px);
+    height: calc(var(--fa-iconpicker-button-size) - 4px);
+    line-height: calc(var(--fa-iconpicker-button-size) - 4px);
+    color: var(--fa-iconpicker-search-active-color);
+    border-radius: var(--fa-iconpicker-button-border-radius);
+    outline: none;
+    transition: var(--fa-iconpicker-default-transition);
+    width: 100%;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-search input:focus,
+.fa-iconpicker-widget .fa-iconpicker-search input:active {
+    border-color: var(--fa-iconpicker-button-active-border-color);
+    background-color: #FFF;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-latest-wrapper {
+    height: calc(var(--fa-iconpicker-button-size) + var(--fa-iconpicker-button-gap));
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: calc(100% - 8px - var(--fa-iconpicker-button-gap));
+    background-color: var(--fa-iconpicker-icons-placeholder-square);
+    background-position: calc(-1 * var(--fa-iconpicker-button-gap) / 2) calc(-1 * var(--fa-iconpicker-button-gap) / 2);
+    background-image: repeating-linear-gradient(
+                            to bottom,
+                            var(--fa-iconpicker-background-color),
+                            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+                            transparent var(--fa-iconpicker-button-gap),
+                            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+                      ),
+                      repeating-linear-gradient(
+                            to right,
+                            var(--fa-iconpicker-background-color),
+                            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+                            transparent var(--fa-iconpicker-button-gap),
+                            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+                      );
+}
+
+.fa-iconpicker-widget .fa-iconpicker-latest-wrapper::-webkit-scrollbar {
+    height: 0px;
+    background-color: #EBEBEB;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-count {
+    padding-left: 2px;
+    color: var(--fa-iconpicker-icons-count-color);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-track {
+    background-color: #EBEBEB;
+}
+
+/*.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-track:hover {*/
+/*    background-color: #EBEBEB;*/
+/*}*/
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-track:active {
+    background-color: #F0F0F0;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar {
+    width: 8px;
+    background-color: #EBEBEB;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-thumb {
+    background-color: #D0D0D0;
+    transition: var(--fa-iconpicker-default-transition);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #BBBBBB;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper::-webkit-scrollbar-thumb:active {
+    background-color: var(--fa-iconpicker-button-active-border-color);
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-no-icons {
+    color: var(--fa-iconpicker-label-color);
+    width: calc(100% - 2 * var(--fa-iconpicker-button-size));
+    min-width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-style: italic;
+    text-align: center;
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 2px);
+    position: absolute;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager {
+    position: relative;
+    height: 100%;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page {
+    width: 100%;
+    position: relative;
+    background-color: var(--fa-iconpicker-icons-placeholder-square);
+    background-position: calc(-1 * var(--fa-iconpicker-button-gap) / 2) calc(-1 * var(--fa-iconpicker-button-gap) / 2);
+    background-image: repeating-linear-gradient(
+                            to bottom,
+                            var(--fa-iconpicker-background-color),
+                            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+                            transparent var(--fa-iconpicker-button-gap),
+                            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+                      ),
+                      repeating-linear-gradient(
+                            to right,
+                            var(--fa-iconpicker-background-color),
+                            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+                            transparent var(--fa-iconpicker-button-gap),
+                            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+                      );
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page:not(.filled):not(.loading):before {
+    position: absolute;
+    display: block;
+    background-color: var(--fa-iconpicker-button-border-color);
+    padding: 3px 7px;
+    border-radius: 999px;
+    content: attr(data-page);
+    color: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 11px;
+    line-height: 14px;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page.loading:after {
+    top: calc(50% - (var(--fa-iconpicker-button-size) / 2)) !important;
+    left: calc(50% - (var(--fa-iconpicker-button-size) / 2)) !important;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page:first-child {
+    margin-top: calc(-1 * var(--fa-iconpicker-button-margin));
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page:last-child {
+    margin-bottom: calc(-1 * var(--fa-iconpicker-button-margin));
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page.filled {
+    background-color: var(--fa-iconpicker-background-color);
+    background-image: none;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page.filled:last-child {
+    height: auto !important;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button {
+    position: relative;
+}
+
+.fa-iconpicker-widget.weight-T .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:before { font-weight: 100 !important; }
+.fa-iconpicker-widget.weight-L .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:before { font-weight: 300 !important; }
+.fa-iconpicker-widget.weight-R .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:before { font-weight: normal !important; }
+.fa-iconpicker-widget.weight-S .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:before { font-weight: bold !important; }
+
+.fa-iconpicker-widget.weight-T .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome 6 Pro','Font Awesome 5 Pro','Font Awesome 6 Free','Font Awesome 5 Free','FontAwesome';
+    font-weight: 100;
+}
+
+.fa-iconpicker-widget.weight-L .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome 6 Pro','Font Awesome 5 Pro','Font Awesome 6 Free','Font Awesome 5 Free','FontAwesome';
+    font-weight: 300;
+}
+
+.fa-iconpicker-widget.weight-R .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome 6 Pro','Font Awesome 5 Pro','Font Awesome 6 Free','Font Awesome 5 Free','FontAwesome';
+    font-weight: 500;
+}
+
+.fa-iconpicker-widget.weight-S .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome 6 Pro','Font Awesome 5 Pro','Font Awesome 6 Free','Font Awesome 5 Free','FontAwesome';
+    font-weight: 900;
+}
+
+.fa-iconpicker-widget.weight-D .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome Duotone','Font Awesome 6 Duotone','Font Awesome 5 Duotone';
+    font-weight: 900;
+}
+
+.fa-iconpicker-widget.weight-B .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i {
+    font-family: 'Font Awesome 6 Brands','Font Awesome 5 Brands','FontAwesome';
+}
+
+.fa-iconpicker-widget.weight-B .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:before {
+    position: static;
+}
+
+.fa-iconpicker-widget.weight-B .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button i:after {
+    display: none;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button.loading:after,
+.fa-iconpicker-icon-details > button.loading:after {
+    top: calc(50% - (var(--fa-iconpicker-button-size) / 2)) !important;
+    left: calc(50% - (var(--fa-iconpicker-button-size) / 2)) !important;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button.loading:after {
+    font-size: calc(var(--fa-iconpicker-button-font-size) - 2px) !important;
+}
+
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button.loading i,
+.fa-iconpicker-icon-details > button.loading i {
+    display: none;
+}
+
+/* loading */
+
+.fa-iconpicker-widget.loading .fa-iconpicker-icons .fa-iconpicker-icons-wrapper {
+    overflow-y: hidden;
+}
+
+.fa-iconpicker-widget.loading .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager {
+    transition: var(--fa-iconpicker-default-transition);
+    background-color: var(--fa-iconpicker-icons-placeholder-square);
+    background-position: calc(-1 * var(--fa-iconpicker-button-gap) / 2) calc(-1 * var(--fa-iconpicker-button-gap) / 2);
+    background-image: repeating-linear-gradient(
+            to bottom,
+            var(--fa-iconpicker-background-color),
+            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+            transparent var(--fa-iconpicker-button-gap),
+            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+    ),
+    repeating-linear-gradient(
+            to right,
+            var(--fa-iconpicker-background-color),
+            var(--fa-iconpicker-background-color) var(--fa-iconpicker-button-gap),
+            transparent var(--fa-iconpicker-button-gap),
+            transparent calc(var(--fa-iconpicker-button-gap) + var(--fa-iconpicker-button-size))
+    );
+}
+
+.fa-iconpicker-widget.loading .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page {
+    opacity: 0.4;
+}
+
+.fa-iconpicker-widget.loading .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager:before {
+    position: absolute;
+    display: block;
+    width: 10px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: var(--fa-iconpicker-background-color);
+    content: '';
+    z-index: 1;
+}
+
+.fa-iconpicker-widget.loading .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager:after,
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper .fa-iconpicker-pager .fa-iconpicker-page.loading:after,
+.fa-iconpicker-widget .fa-iconpicker-icons .fa-iconpicker-icons-wrapper button.loading:after,
+.fa-iconpicker-icon-details > button.loading:after {
+    position: absolute;
+    top: calc(50% - (var(--fa-iconpicker-button-size) / 2) + 1px);
+    left: calc(50% - (var(--fa-iconpicker-button-size) / 2) - 4px);
+    width: var(--fa-iconpicker-button-size);
+    height: var(--fa-iconpicker-button-size);
+    line-height: var(--fa-iconpicker-button-size);
+    font-size: calc(var(--fa-iconpicker-button-size) - 12px);
+    text-align: center;
+    display: block;
+    color: var(--fa-iconpicker-button-active-border-color);
+    font-family: "Font Awesome 6 Pro","Font Awesome 5 Pro","Font Awesome 6 Free","Font Awesome 5 Free","FontAwesome";
+    content: '\f021';
+    animation: rotating 500ms infinite linear;
+}
+
+.fa-iconpicker-icon-details {
+    position: absolute;
+    z-index: 6;
+    left: 10px;
+    top: 10px;
+    opacity: 0;
+    text-align: left;
+    font-size: calc(var(--fa-iconpicker-default-font-size) - 2px);
+    line-height: calc(var(--fa-iconpicker-default-font-size) + 2px);
+    max-width: 200px;
+}
+
+.fa-iconpicker-icon-details:before {
+    display: block;
+    content: '';
+    bottom: calc(100% - 4px);
+    left: 0px;
+    z-index: 0;
+    width: calc(20px + var(--fa-iconpicker-row-height));
+    height: calc(10px + var(--fa-iconpicker-row-height) + 5px);
+    position: absolute;
+    border-top-left-radius: var(--fa-iconpicker-border-radius);
+    border-top-right-radius: var(--fa-iconpicker-border-radius);
+    border: 1px solid var(--fa-iconpicker-border-color);
+    background-color: var(--fa-iconpicker-details-background-color);
+    box-shadow: var(--fa-iconpicker-default-boxshadow);
+}
+
+.fa-iconpicker-icon-details:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0px;
+    height: 1px;
+    width: calc(18px + var(--fa-iconpicker-row-height));
+    background-color: var(--fa-iconpicker-details-background-color);
+    z-index: 6;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    background-color: var(--fa-iconpicker-details-background-color);
+    border-bottom-left-radius: var(--fa-iconpicker-border-radius);
+    border-bottom-right-radius: var(--fa-iconpicker-border-radius);
+    border-top-right-radius: var(--fa-iconpicker-border-radius);
+    border: 1px solid var(--fa-iconpicker-border-color);
+    box-shadow: var(--fa-iconpicker-default-boxshadow);
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > *:not(.fa-iconpicker-icon-details-search-terms):not(.fa-iconpicker-icon-details-weights) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > * label {
+    border: none;
+    margin-bottom: 0px;
+    padding: 0px 10px 0px 0px;
+    min-width: 50px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-search-terms,
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-weights {
+    margin: 10px 0px 0px 0px;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-search-terms > label,
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-weights > label {
+    display: block;
+    border-bottom: 1px solid var(--fa-iconpicker-border-color);
+    padding: 0px 0px 2px 0px;
+    margin-bottom: 5px;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-weights i {
+    background-color: #FFF;
+    width: var(--fa-iconpicker-button-size);
+    height: var(--fa-iconpicker-button-size);
+    font-size: var(--fa-iconpicker-button-font-size);
+    line-height: calc(var(--fa-iconpicker-button-size) - 3px);
+    border: 1px solid var(--fa-iconpicker-button-border-color);
+    color: #000000;
+    text-align: center;
+    display: inline-block;
+    cursor: default;
+}
+
+.fa-iconpicker-icon-details .fa-iconpicker-icon-details-inner > .fa-iconpicker-icon-details-weights i:not(:last-child) {
+    margin-right: var(--fa-iconpicker-button-gap);
+}
+
+.fa-iconpicker-icon-details > button {
+    position: absolute;
+    bottom: calc(100% - 2px);
+    left: 7px;
+    z-index: 7;
+    line-height: calc(var(--fa-iconpicker-button-size) + 3px);
+    font-size: calc(var(--fa-iconpicker-button-font-size) + 6px);
+    width: calc(var(--fa-iconpicker-button-size) + 6px);
+    height: calc(var(--fa-iconpicker-button-size) + 6px);
+}

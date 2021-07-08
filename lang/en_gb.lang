@@ -1,0 +1,97 @@
+# GENERAL LABELS
+fa_iconpicker_name = FA Icon Picker
+fa_iconpicker_title = Font Awesome Icon Picker
+fa_iconpicker_settings = Settings
+fa_iconpicker_widget_settings = Default settings for the picker widget
+fa_iconpicker_readme = HowTo
+fa_iconpicker_packages = Packages
+fa_iconpicker_packages_pro = Pro Packages
+fa_iconpicker_packages_free = Free Packages
+fa_iconpicker_packages_subset = Subset
+fa_iconpicker_packages_upload = Upload Packages
+fa_iconpicker_version = version
+fa_iconpicker_icons = icons
+fa_iconpicker_weights = styles
+fa_iconpicker_upload = upload packages
+fa_iconpicker_active_package = active package
+fa_iconpicker_last_free_package = last Free Package cannot be deleted
+fa_iconpicker_action_makedefault = mark as default package
+fa_iconpicker_action_delete = delete package
+fa_iconpicker_action_delete_confirm = Do you really want to delete the selected package? [concerned: .zip file, folder, database entries]
+fa_iconpicker_action_startupload = start upload
+fa_iconpicker_action_clearqueue = clear queue
+
+# CONFIG
+fa_iconpicker_config_rows = rows
+fa_iconpicker_config_columns = columns
+fa_iconpicker_config_offset = additional pages that are added during dynamic reloading
+fa_iconpicker_config_max-pages = maximum concurrent pages in the picker
+fa_iconpicker_config_details-on-hover = on mouseover over icon overlay appears with further info and view and selection of other styles
+fa_iconpicker_config_close-with-button = close via button instead of icon select or click outside the widget
+fa_iconpicker_config_movable = make picker movable [double click to reset]
+fa_iconpicker_config_clear-target = show reset button
+fa_iconpicker_config_multiple = multiple selection [only works with insert-value = "name"]
+fa_iconpicker_config_weights = available styles [L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
+fa_iconpicker_config_add-weight = add style on insertion [only works with insert-value = "name"]
+fa_iconpicker_config_preview-weight = preview style
+fa_iconpicker_config_insert-value = field value to insert into target field [default: "name"]
+fa_iconpicker_config_sort-by = sort field
+fa_iconpicker_config_sort-direction = sort order
+fa_iconpicker_config_hide-search = hide search
+fa_iconpicker_config_hide-latest-used = hide "latest used" section
+fa_iconpicker_config_latest-used-max = icon limit in "latest used " section
+fa_iconpicker_config_icons = explicit list of single, allowed icons [with wildcard option, e.g. fa-arrow*]
+fa_iconpicker_config_class = additional CSS class(es) on wrapper element
+fa_iconpicker_config_icon-class = additional CSS class(es) at icon buttons
+fa_iconpicker_config_onbeforeselect = event handler: before inserting the selection into the target field [1st param: icon button object, 2nd param: target field object]
+fa_iconpicker_config_onselect = event handler: after inserting the selection into the target field [1st param: icon name, 2nd param: delete flag, 3rd param: target field object]
+fa_iconpicker_config_onbeforeshow = event handler: before showing the widget [1st param: target field object]
+fa_iconpicker_config_onshow = event handler: after displaying the widget [1st param: target field object]
+fa_iconpicker_config_onbeforehide = event handler: before hiding the widget [1st param: target field object]
+fa_iconpicker_config_onhide = event handler: after hiding the widget [1st param: target field object]
+
+# PICKER WIDGET
+fa_iconpicker_widget_search_placeholder = search icons ...
+fa_iconpicker_widget_label_last_used = last used icons
+fa_iconpicker_widget_label_icons = icon selection
+fa_iconpicker_widget_weight_tooltip_T = thin style (T = Thin)
+fa_iconpicker_widget_weight_tooltip_L = small style (L = Light)
+fa_iconpicker_widget_weight_tooltip_R = regular style (R = Regular)
+fa_iconpicker_widget_weight_tooltip_S = bold style (S = Solid)
+fa_iconpicker_widget_weight_tooltip_D = two-color style (D = Duotone)
+fa_iconpicker_widget_weight_tooltip_B = brands & logos (B = Brand)
+fa_iconpicker_widget_close_tooltip = close picker
+fa_iconpicker_widget_move_tooltip = drag to move<br />double click to reset position
+fa_iconpicker_widget_clear_tooltip = clear target
+fa_iconpicker_widget_no_icons = no matching icons found
+fa_iconpicker_widget_icon_details_name = name
+fa_iconpicker_widget_icon_details_code = code
+fa_iconpicker_widget_icon_details_label = label
+fa_iconpicker_widget_icon_details_searchterms = search terms
+fa_iconpicker_widget_icon_details_weights = available styles
+
+# ERRORS
+fa_iconpicker_info_nopackages_free = no Free Packages installed
+fa_iconpicker_info_nopackages_pro = no Pro Packages installed
+fa_iconpicker_error_upload_not_existing = The upload folder does not exist. Please create it manually here: <b>%s</b>.
+fa_iconpicker_error_upload_not_writable = The upload folder is not writable.
+fa_iconpicker_error_file_already_exists = A file with the filename <b>%s</b> already exists.
+fa_iconpicker_error_file_upload_failed = The upload of the file <b>%s</b> failed.
+fa_iconpicker_error_import_desktop = The package <b>%s</b> is intended for desktop applications and is not supported by this AddOn.
+fa_iconpicker_error_import_extractdata = No valid data could be extracted for the package "%s".
+fa_iconpicker_error_import_unzip = Unpacking of the package <b>%s</b> failed.
+fa_iconpicker_error_import_unknown_structure = The package "%s" has an invalid file structure. The import was canceled.
+fa_iconpicker_error_input_invalidicon = The selected icon is not part of the current set.
+fa_iconpicker_error_input_invalidicon_multiple = At least 1 selected icon is not part of the current set.
+
+# DROPZONE LIBRARY
+fa_iconpicker_dropzone_dictDefaultMessage = Drop Font Awesome .zip package files here to upload.
+fa_iconpicker_dropzone_dictFallbackMessage = Your browser does not support drag'n'drop file uploads.
+fa_iconpicker_dropzone_dictFileTooBig = File is too big ({{filesize}} MByte). Max filesize: {{maxFilesize}} MByte.
+fa_iconpicker_dropzone_dictInvalidFileType = You can't upload files of this type.
+fa_iconpicker_dropzone_dictResponseError = Server responded with {{statusCode}} code.
+fa_iconpicker_dropzone_dictCancelUpload = Cancel upload.
+fa_iconpicker_dropzone_dictUploadCanceled = Upload canceled.
+fa_iconpicker_dropzone_dictCancelUploadConfirmation = Are you sure you want to cancel this upload?
+fa_iconpicker_dropzone_dictRemoveFile = Remove file
+fa_iconpicker_dropzone_dictMaxFilesExceeded = You can not upload any more files.

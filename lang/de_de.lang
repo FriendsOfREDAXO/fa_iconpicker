@@ -1,0 +1,98 @@
+# GENERAL LABELS
+fa_iconpicker_name = FA Icon Picker
+fa_iconpicker_title = Font Awesome Icon Picker
+fa_iconpicker_settings = Einstellungen
+fa_iconpicker_widget_settings = Standard-Einstellungen für das Picker Widget
+fa_iconpicker_readme = Anleitung
+fa_iconpicker_packages = Pakete
+fa_iconpicker_packages_pro = Pro-Pakete
+fa_iconpicker_packages_free = Free-Pakete
+fa_iconpicker_packages_subset = Subset
+fa_iconpicker_packages_upload = Pakete hochladen
+fa_iconpicker_version = Version
+fa_iconpicker_icons = Icons
+fa_iconpicker_weights = Stile
+fa_iconpicker_upload = Paket hochladen
+fa_iconpicker_active_package = aktives Paket
+fa_iconpicker_last_free_package = letztes Free-Paket nicht löschbar
+fa_iconpicker_action_makedefault = als Standard-Paket festlegen
+fa_iconpicker_action_delete = Paket löschen
+fa_iconpicker_action_delete_confirm = Wollen Sie das ausgewählte Paket wirklich löschen? [betroffen: .zip-Datei, Ordner, Datenbank-Einträge]
+fa_iconpicker_action_startupload = Upload starten
+fa_iconpicker_action_clearqueue = Warteschlange leeren
+
+# CONFIG
+fa_iconpicker_config_rows = Zeilen
+fa_iconpicker_config_columns = Spalten
+fa_iconpicker_config_offset = zusätzliche Seiten, die beim dynamischen Nachladen ergänzt werden
+fa_iconpicker_config_max-pages = Maximal gleichzeitg existierende Seiten im Picker
+fa_iconpicker_config_weight-selector = Auswahl-Feld für Stile
+fa_iconpicker_config_details-on-hover = Bei Mouseover über Icon erscheint Overlay mit weiteren Infos und Ansicht und Auswahl anderer Stile
+fa_iconpicker_config_close-with-button = Schließen über Button statt über Icon-Select oder Click außerhalb des Widgets
+fa_iconpicker_config_movable = Picker verschiebbar [Doppelklick für Reset]
+fa_iconpicker_config_clear-target = Reset-Button anzeigen
+fa_iconpicker_config_multiple = Mehrfachauswahl [wirkt nur bei insert-value = "name"]
+fa_iconpicker_config_weights = Verfügbare Stile [L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
+fa_iconpicker_config_add-weight = Stil beim Einfügen ergänzen [wirkt nur bei insert-value = "name"]
+fa_iconpicker_config_preview-weight = Vorschau-Stil
+fa_iconpicker_config_insert-value = Feld, dessen Wert eingefügt wird [Standard: "Name"]
+fa_iconpicker_config_sort-by = Sortier-Feld
+fa_iconpicker_config_sort-direction = Sortier-Reihenfolge
+fa_iconpicker_config_hide-search = Suche ausblenden
+fa_iconpicker_config_hide-latest-used = "zuletzt benutzt" -Sektion ausblenden
+fa_iconpicker_config_latest-used-max = Anzahl Icons im "zuletzt benutzt"-Bereich
+fa_iconpicker_config_icons = Explizite Liste einzelner, erlaubter Icons [mit Wildcard-Option, z.B. fa-arrow*]
+fa_iconpicker_config_class = Zusätzliche CSS-Klasse(n) am Wrapper-Element
+fa_iconpicker_config_icon-class = Zusätzliche CSS-Klasse(n) an Icon-Buttons
+fa_iconpicker_config_onbeforeselect = Event-Handler: vor dem Einfügen der Auswahl in das Ziel-Feld [1. Param: Button-Objekt, 2. Param: Ziel-Objekt]
+fa_iconpicker_config_onselect = Event-Handler: nach dem Einfügen der Auswahl in das Ziel-Feld [1. Param: Name des Icons, 2. Param: Lösch-Flag, 3. Param: Ziel-Objekt]
+fa_iconpicker_config_onbeforeshow = Event-Handler: Vor dem Anzeigen des Widgets [1. Param: Ziel-Objekt]
+fa_iconpicker_config_onshow = Event-Handler: Nach dem Anzeigen des Widgets [1. Param: Ziel-Objekt]
+fa_iconpicker_config_onbeforehide = Event-Handler: Vor dem Ausblenden des Widgets [1. Param: Ziel-Objekt]
+fa_iconpicker_config_onhide = Event-Handler: Nach dem Ausblenden des Widgets [1. Param: Ziel-Objekt]
+
+# PICKER WIDGET
+fa_iconpicker_widget_search_placeholder = Icons durchsuchen ...
+fa_iconpicker_widget_label_last_used = zuletzt benutzt
+fa_iconpicker_widget_label_icons = Icon-Auswahl
+fa_iconpicker_widget_weight_tooltip_T = sehr dünner Stil (T = Thin)
+fa_iconpicker_widget_weight_tooltip_L = schmaler Stil (L = Light)
+fa_iconpicker_widget_weight_tooltip_R = regulärer Stil (R = Regular)
+fa_iconpicker_widget_weight_tooltip_S = fetter Stil (S = Solid)
+fa_iconpicker_widget_weight_tooltip_D = Zweifarben-Stil (D = Duotone)
+fa_iconpicker_widget_weight_tooltip_B = Brands & Logos (B = Brand)
+fa_iconpicker_widget_close_tooltip = Picker schließen
+fa_iconpicker_widget_move_tooltip = Picker verschieben<br />Doppel-Klick, um zurückzusetzen
+fa_iconpicker_widget_clear_tooltip = Zielfeld leeren
+fa_iconpicker_widget_no_icons = keine passenden Icons gefunden
+fa_iconpicker_widget_icon_details_name = Name
+fa_iconpicker_widget_icon_details_code = Code
+fa_iconpicker_widget_icon_details_label = Label
+fa_iconpicker_widget_icon_details_searchterms = Suchbegriffe
+fa_iconpicker_widget_icon_details_weights = verfügbare Stile
+
+# ERRORS
+fa_iconpicker_info_nopackages_free = keine Free-Pakete installiert
+fa_iconpicker_info_nopackages_pro = keine Pro-Pakete installiert
+fa_iconpicker_error_upload_not_existing = Der Upload-Ordner existiert nicht. Bitte legen Sie diesen hier manuell an: "%s".
+fa_iconpicker_error_upload_not_writable = Der Upload-Ordner ist nicht beschreibbar.
+fa_iconpicker_error_file_already_exists = Eine Datei mit dem Dateinamen "%s" existiert bereits.
+fa_iconpicker_error_file_upload_failed = Der Upload der Datei "%s" schlug fehl.
+fa_iconpicker_error_import_desktop = Das Paket "%s" ist für Desktop-Anwendungen bestimmt und wird von diesem AddOn nicht unterstützt.
+fa_iconpicker_error_import_extractdata = Für das Paket "%s" konnten keine validen Daten extrahiert werden.
+fa_iconpicker_error_import_unzip = Das Entpacken des Pakets "%s" ist fehlgeschlagen.
+fa_iconpicker_error_import_unknown_structure = Das Paket "%s" hat keine bekannte Dateistruktur. Der Import wurde abgebrochen.
+fa_iconpicker_error_input_invalidicon = Das ausgewählte Icon ist nicht Bestandteil des aktuellen Sets.
+fa_iconpicker_error_input_invalidicon_multiple = Mindestens 1 ausgewähltes Icon ist nicht Bestandteil des aktuellen Sets.
+
+# DROPZONE LIBRARY
+fa_iconpicker_dropzone_dictDefaultMessage = Hier können Sie die Font Awesome Pakete als .zip-Datei hochladen.
+fa_iconpicker_dropzone_dictFallbackMessage = Ihr Browser unterstützt keine Drag'n'Drop-Datei-Uploads.
+fa_iconpicker_dropzone_dictFileTooBig = Datei ist zu groß ({{filesize}} MByte). Maximale Dateigröße: {{maxFilesize}} MByte.
+fa_iconpicker_dropzone_dictInvalidFileType = Sie können keine Dateien dieses Typs hochladen.
+fa_iconpicker_dropzone_dictResponseError = Der Server hat mit dem Code {{statusCode}} geantwortet.
+fa_iconpicker_dropzone_dictCancelUpload = Upload abbrechen.
+fa_iconpicker_dropzone_dictUploadCanceled = Upload abgebrochen.
+fa_iconpicker_dropzone_dictCancelUploadConfirmation = Sind Sie sicher, dass Sie diesen Upload abbrechen möchten?
+fa_iconpicker_dropzone_dictRemoveFile = Datei entfernen
+fa_iconpicker_dropzone_dictMaxFilesExceeded = Sie können keine weiteren Dateien hochladen.
