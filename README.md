@@ -1,5 +1,8 @@
 # Font Awesome Icon Picker🐥
 
+!![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
+
+
 Der Iconpicker wird an Text-Eingabefelder angebunden. Beim Klick öffnet sich ein **Picker Widget**. Anschließend werden die Icons des **aktuell eingestellten
  Pakets** dynamisch nachgeladen. Über die Einstellungen zu Zeilen und Spalten im Picker Widget kann der Picker beim Scrollen kalkulieren, welche Seite vom
   Server nachgeladen werden soll. Dies beugt der Überlastung des Browsers vor und sichert so eine flüssige Navigation.
