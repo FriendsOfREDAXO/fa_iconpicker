@@ -1,6 +1,6 @@
 # Font Awesome Icon Picker🐥
 
-!![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
+![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
 
 
 Der Iconpicker wird an Text-Eingabefelder angebunden. Beim Klick öffnet sich ein **Picker Widget**. Anschließend werden die Icons des **aktuell eingestellten
