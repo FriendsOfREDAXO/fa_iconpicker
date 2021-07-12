@@ -1,4 +1,4 @@
-# Font Awesome Icon Picker🐥
+# Font Awesome Icon Picker
 
 ![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
 
