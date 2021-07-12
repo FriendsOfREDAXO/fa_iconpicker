@@ -34,9 +34,10 @@ if(rex_request("make-active", "int") == 1) {
 if(rex_request("delete", "int") == 1) {
     $variant = rex_request("variant", "string", "");
     $version = rex_request("version", "string", "");
+    $subset = rex_request("subset", "string", "");
 
     if(trim($variant) != "" && trim($version) != "") {
-        $package = new rex_fa_package($variant, $version);
+        $package = new rex_fa_package($variant, $version, ($subset == "" ? null : $subset));
 
         if (rex_fa_package::packageExists($package)) {
             $package->delete();
