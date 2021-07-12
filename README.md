@@ -44,7 +44,7 @@ Die Schrift-Ressourcen für das aktuelle Paket werden auch im Backend geladen. F
 
 ## Einbindung Frontend 
 
-Für die Ausgabe eines `<link>`-Tags für das Font Awesome CSS muss folgender Code im `<head>` Bereich des Templates eingefügt werden. **ACHTUNG:** Funktioniert ur direkt im Template, nicht bei includes!
+Für die Ausgabe eines `<link>`-Tags für das Font Awesome CSS muss folgender Code im `<head>` Bereich des Templates eingefügt werden. **ACHTUNG:** Funktioniert nur direkt im Template, nicht bei includes!
 ```
 REX_FA_ICONPICKER[]
 ```
