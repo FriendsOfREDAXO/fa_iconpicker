@@ -42,7 +42,7 @@ Die Schrift-Ressourcen für das aktuelle Paket werden auch im Backend geladen. F
 
 -----
 
-## Einbindung Frontend 
+## Einbindung Font Awesome im Frontend 
 
 Für die Ausgabe eines `<link>`-Tags für das Font Awesome CSS muss folgender Code im `<head>` Bereich des Templates eingefügt werden. **ACHTUNG:** Funktioniert nur direkt im Template, nicht bei includes!
 ```
@@ -57,7 +57,7 @@ Der Picker wird über die Angabe der Klasse `rex-fa-iconpicker` in Text-Eingabef
  **Moduleingaben**.
 
 ```html
-<input type="text" class="rex-fa-iconpicker" />
+<input type="text" class="form-control rex-fa-iconpicker" />
 ```
 
 ----
