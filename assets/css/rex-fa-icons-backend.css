@@ -700,7 +700,7 @@
 
 .fa-iconpicker-icon-details {
     position: absolute;
-    z-index: 6;
+    z-index: 10;
     left: 10px;
     top: 10px;
     opacity: 0;
