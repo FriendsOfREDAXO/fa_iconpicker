@@ -1,5 +1,7 @@
 # Font Awesome Icon Picker
 
+Icon-Picker für Font Awesome ab Version 5. 
+
 ![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
 
 
