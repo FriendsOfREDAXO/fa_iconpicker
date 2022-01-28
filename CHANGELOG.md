@@ -6,6 +6,7 @@ Version 1.1.1 - 28.01.2022
 
 * Bugfix mit i18n-Problemen bei install/update
 * Bugfix bei Yaml::parse() beim Paket-Import
+* Neu: Uninstall hinzugefügt, vollständige Bereinigung
 
 > Bitte nach der Installation / dem Update Cache löschen!
 
