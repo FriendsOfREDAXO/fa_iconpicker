@@ -62,6 +62,10 @@
     padding-bottom: 0px;
 }
 
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr td.title {
+    white-space: nowrap;
+}
+
 #rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td {
     background-color: #eefff2 !important;
     border-style: solid;
@@ -69,7 +73,7 @@
     border-width: 1px 0px;
 }
 
-#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td:first-child {
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper tr.active td.title {
     border-left-width: 5px;
 }
 

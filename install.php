@@ -28,6 +28,12 @@ try {
     exit();
 }
 
+// install folders
+if(!is_dir($targetPath.'free/')) {
+    rex_dir::create($targetPath.'free/');
+    rex_dir::create($targetPath.'pro/');
+}
+
 // import packages if not existing
 try {
     rex_fa_package::import(null, false);
@@ -54,14 +60,14 @@ foreach($faIconPickerSettings as $key => $setting) {
 }
 
 // check if mm type already installed, else add
-$mmEffect = rex_sql::factory()->getArray("SELECT id FROM ".rex::getTable('media_manager_type')." WHERE name = :name", [':name' => rex_i18n::msg('fa_iconpicker_mm_name')]);
+$mmEffect = rex_sql::factory()->getArray("SELECT id FROM ".rex::getTable('media_manager_type')." WHERE name = :name", [':name' => "font-awesome"]);
 
 if(count($mmEffect) == 0) {
     // add effect for showing css
     $mmEffect = rex_sql::factory();
     $mmEffect->setTable(rex::getTable("media_manager_type"));
     $mmEffect->setValues([
-        "name" => rex_i18n::msg('fa_iconpicker_mm_name'),
+        "name" => "font-awesome",
         "description" => rex_i18n::rawMsg("fa_iconpicker_mm_description"),
     ]);
     $mmEffect->addGlobalCreateFields();
@@ -84,7 +90,7 @@ if(count($mmEffect) == 0) {
     $mmEffect = rex_sql::factory();
     $mmEffect->setTable(rex::getTable("media_manager_type"));
     $mmEffect->setValues([
-        "name" => rex_i18n::msg('fa_iconpicker_mm_fontsrc_name'),
+        "name" => "font-awesome-font-src",
         "description" => rex_i18n::rawMsg("fa_iconpicker_mm_fontsrc_description"),
     ]);
     $mmEffect->addGlobalCreateFields();
@@ -120,18 +126,26 @@ foreach($packages as $p) {
 
         $newContent = preg_replace(
             "@url\(\.\.\/webfonts\/([a-z0-9\-\.]+)([^\)]+)?\)@i",
-            "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=".rex_i18n::msg('fa_iconpicker_mm_fontsrc_name')."&rex_media_file=$1$2)",
+            "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=font-awesome-font-src&rex_media_file=$1$2)",
             $content,
             99
         );
 
         // fixing the fix
-//        $newContent = preg_replace(
-//            "@url\(\.\/index.php\?rex_media_type=font-awesome-font-src&rex_media_file=([a-z0-9\-\.]+)([^\)]+)?\)@i",
-//            "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=".rex_i18n::msg('fa_iconpicker_mm_fontsrc_name')."&rex_media_file=$1$2)",
-//            $newContent,
-//            99
-//        );
+        $newContent = preg_replace(
+            "@url\((.+?)\/index.php\?rex_media_type=\[translate:fa_iconpicker_mm_fontsrc_name\]&rex_media_file=([a-z0-9\-\.]+)([^\)]+)?\)@i",
+            "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=font-awesome-font-src&rex_media_file=$2$3)",
+            $newContent,
+            99
+        );
+
+        // for migration purposes, update server url
+        $newContent = preg_replace(
+            "@url\((.+?)\/index.php\?rex_media_type=font-awesome-font-src&rex_media_file=([a-z0-9\-\.]+)([^\)]+)?\)@i",
+            "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=font-awesome-font-src&rex_media_file=$2$3)",
+            $newContent,
+            99
+        );
 
         rex_file::put($cssFile, $newContent);
     }

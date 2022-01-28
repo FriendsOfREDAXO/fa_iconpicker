@@ -371,7 +371,7 @@ class rex_fa_package
             }
 
             // fix css pathes for webfonts
-            $allMinCSSPath = $targetFolder."/".rex_fa_iconpicker::ALL_MIN_CSS;
+            $allMinCSSPath = $targetFolder."/css/".rex_fa_iconpicker::ALL_MIN_CSS;
 
             if(!file_exists($allMinCSSPath)) {
                 foreach(rex_fa_iconpicker::ALL_MIN_CSS_CUSTOMS as $versionCompare => $cssPath) {
@@ -379,7 +379,7 @@ class rex_fa_package
 
                     if(count($matches) == 3) {
                         if (rex_version::compare($detectedVersion, $matches[2], $matches[1])) {
-                            $allMinCSSPath = $targetFolder."/".$cssPath;
+                            $allMinCSSPath = $targetFolder."/css/".$cssPath;
                             break;
                         }
                     }
@@ -387,11 +387,13 @@ class rex_fa_package
             }
 
             $allMinCSS = rex_file::get($allMinCSSPath);
-//            $allMinCSS = preg_replace(
-//                "@url\(\.\.\/webfonts\/(.+)\)@ims",
-//                "url(/redaxo/".rex_fa_iconpicker::getCssUrlSpecific($package->getVariant(), $package->getVersion())."/webfonts/$1)",
-//                $allMinCSS
-//            );
+
+            $allMinCSS = preg_replace(
+                "@url\(\.\.\/webfonts\/([a-z0-9\-\.]+)([^\)]+)?\)@i",
+                "url(".rtrim(rex::getServer(), "/")."/index.php?rex_media_type=".rex_i18n::msg('fa_iconpicker_mm_fontsrc_name')."&rex_media_file=$1$2)",
+                $allMinCSS,
+                99
+            );
 
             rex_file::put($allMinCSSPath, $allMinCSS);
 

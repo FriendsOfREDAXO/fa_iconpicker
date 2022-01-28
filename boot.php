@@ -69,6 +69,6 @@ if (rex::isBackend()) {
 
     // add current package if existing
     if(!is_null(rex_fa_iconpicker::getCssPath())) {
-        rex_view::addCssFile('./index.php?rex_media_type='.rex_i18n::msg('fa_iconpicker_mm_name').'&rex_media_file='.rex_fa_iconpicker::getActiveCssFileName());
+        rex_view::addCssFile(rtrim(rex::getServer(), "/").'/index.php?rex_media_type='.rex_i18n::msg('fa_iconpicker_mm_name').'&rex_media_file='.rex_fa_iconpicker::getActiveCssFileName());
     }
 }
