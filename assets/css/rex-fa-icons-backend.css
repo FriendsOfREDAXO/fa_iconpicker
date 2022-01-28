@@ -16,6 +16,8 @@
     --fa-iconpicker-background-color: #fdfbf9;
     --fa-iconpicker-default-font-size: 14px;
     --fa-iconpicker-package-subset-background-color: #4b9ad9;
+    --fa-iconpicker-package-version-v5: #82c411;
+    --fa-iconpicker-package-version-v6: #1e37e1;
 
     --fa-iconpicker-button-font-size: calc(var(--fa-iconpicker-button-size) - 15px);
     --fa-iconpicker-button-color: #333333;
@@ -90,6 +92,23 @@
     text-align: center;
     cursor: default;
     margin-top: 1px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper .version {
+    display: inline-block;
+    border-radius: 5px !important;
+    padding: 0px 7px;
+    color: #FFF;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper .version.v-5 {
+    background-color: var(--fa-iconpicker-package-version-v5);
+}
+
+#rex-page-fa-iconpicker-packages .rex-fa-packages-wrapper .version.v-6 {
+    background-color: var(--fa-iconpicker-package-version-v6);
 }
 
 /**
@@ -707,7 +726,7 @@
     text-align: left;
     font-size: calc(var(--fa-iconpicker-default-font-size) - 2px);
     line-height: calc(var(--fa-iconpicker-default-font-size) + 2px);
-    max-width: 200px;
+    max-width: 210px;
 }
 
 .fa-iconpicker-icon-details:before {

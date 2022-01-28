@@ -27,13 +27,13 @@ class rex_fa_iconpicker
     /**
      * constants
      */
-    const ALL_MIN_CSS = 'css'.DIRECTORY_SEPARATOR.'all.min.css';
+    const ALL_MIN_CSS = 'all.min.css';
 
     /**
      * for special/old versions
      */
     const ALL_MIN_CSS_CUSTOMS = [
-        '<5.3' => 'css'.DIRECTORY_SEPARATOR.'all.css'
+        '<5.3' => 'all.css'
     ];
 
     /**
@@ -82,24 +82,26 @@ class rex_fa_iconpicker
      * get path to active package css file
      *
      * @param bool $startFromCMSRoot start from cms root instead of server root
+     * @param bool $pathOnly
      * @return string|null
      * @author Peter Schulze [p.schulze@bitshifters.de]
      */
-    public static function getCssPath(bool $startFromCMSRoot = false): ?string {
-        return self::getCssPathSpecific(self::getActiveVariant(), self::getActiveVersion(), self::getActiveSubset(), $startFromCMSRoot);
+    public static function getCssPath(bool $startFromCMSRoot = false, bool $pathOnly = false): ?string {
+        return self::getCssPathSpecific(self::getActiveVariant(), self::getActiveVersion(), self::getActiveSubset(), $startFromCMSRoot, $pathOnly);
     }
 
     /**
      * get path to provided package css file
      *
-     * @param bool $startFromCMSRoot start from cms root instead of server root
      * @param string|null $variant
      * @param string|null $version
      * @param string|null $subset
+     * @param bool $startFromCMSRoot start from cms root instead of server root
+     * @param bool $pathOnly
      * @return string|null
      * @author Peter Schulze [p.schulze@bitshifters.de]
      */
-    public static function getCssPathSpecific(?string $variant, ?string $version, ?string $subset = null, bool $startFromCMSRoot = false): ?string {
+    public static function getCssPathSpecific(?string $variant, ?string $version, ?string $subset = null, bool $startFromCMSRoot = false, bool $pathOnly = false): ?string {
         $basePath = rex_fa_package::PACKAGE_PATH.$variant.DIRECTORY_SEPARATOR."$variant-$version";
 
         if(!is_null($subset)) {
@@ -107,8 +109,8 @@ class rex_fa_iconpicker
         }
 
         $path = (!$startFromCMSRoot ?
-                    rex_path::data($basePath.DIRECTORY_SEPARATOR.self::getCSSVersionPath($variant, $version, $subset)) :
-                    "redaxo".DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR.$basePath.DIRECTORY_SEPARATOR.self::getCSSVersionPath($variant, $version, $subset)
+                    rex_path::data($basePath.DIRECTORY_SEPARATOR.(!$pathOnly ? self::getCSSVersionPath($variant, $version, $subset) : 'css'.DIRECTORY_SEPARATOR)) :
+                    "redaxo".DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR.$basePath.DIRECTORY_SEPARATOR.(!$pathOnly ? self::getCSSVersionPath($variant, $version, $subset) : 'css'.DIRECTORY_SEPARATOR)
                 );
 
         return (file_exists($path) || $startFromCMSRoot ? $path : null);
@@ -134,18 +136,18 @@ class rex_fa_iconpicker
             $basePath .= "-".$subset;
         }
 
-        if(file_exists(rex_path::data($basePath.DIRECTORY_SEPARATOR.self::ALL_MIN_CSS))) {
-            return self::ALL_MIN_CSS;
+        if(file_exists(rex_path::data($basePath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.self::ALL_MIN_CSS))) {
+            return 'css'.DIRECTORY_SEPARATOR.self::ALL_MIN_CSS;
         } else {
             foreach(rex_fa_iconpicker::ALL_MIN_CSS_CUSTOMS as $versionCompare => $cssPath) {
                 preg_match("@^([<>=]*)(\d+.*)@", $versionCompare, $matches);
 
                 if(count($matches) == 3) {
                     if (rex_version::compare($version, $matches[2], $matches[1])) {
-                        $path = rex_path::data($basePath.DIRECTORY_SEPARATOR.$cssPath);
+                        $path = rex_path::data($basePath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$cssPath);
 
                         if(file_exists($path)) {
-                            return $cssPath;
+                            return 'css'.DIRECTORY_SEPARATOR.$cssPath;
                         }
                     }
                 }
@@ -170,10 +172,41 @@ class rex_fa_iconpicker
     }
 
     /**
+     * get active css file name
+     *
+     * @return string|null
+     * @author Peter Schulze | p.schulze[at]bitshifters.de
+     */
+    public static function getActiveCssFileName(): ?string {
+        $basePath = rex_fa_package::PACKAGE_PATH.self::getActiveVariant().DIRECTORY_SEPARATOR.self::getActiveVariant()."-".self::getActiveVersion();
+
+        if(file_exists(rex_path::data($basePath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.self::ALL_MIN_CSS))) {
+            return self::ALL_MIN_CSS;
+        } else {
+            foreach(rex_fa_iconpicker::ALL_MIN_CSS_CUSTOMS as $versionCompare => $cssPath) {
+                preg_match("@^([<>=]*)(\d+.*)@", $versionCompare, $matches);
+
+                if(count($matches) == 3) {
+                    if (rex_version::compare(self::getActiveVersion(), $matches[2], $matches[1])) {
+                        $path = rex_path::data($basePath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$cssPath);
+
+                        if(file_exists($path)) {
+                            return $cssPath;
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * get url for provided package css file
      *
      * @param string $variant
      * @param string $version
+     * @param string|null $subset
      * @return string
      * @author Peter Schulze [p.schulze@bitshifters.de]
      */
@@ -253,7 +286,10 @@ class rex_fa_iconpicker
             SELECT
                 version,
                 variant,
-                subset
+                subset,
+                CAST(SUBSTRING_INDEX(version, '.', 1) AS UNSIGNED) AS major_version,
+                CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(version, '.', 2), '.', -1) AS UNSIGNED) AS minor_version,
+                CAST(SUBSTRING_INDEX(version, '.', -1) AS UNSIGNED) AS built_version
             FROM
                 ".rex::getTable('fa_icons')." 
             GROUP BY
@@ -263,7 +299,9 @@ class rex_fa_iconpicker
             $where
             ORDER BY
                 FIELD(variant, 'pro', 'free'),
-                CAST(REPLACE(version, '.', '') AS UNSIGNED) DESC,
+                CAST(SUBSTRING_INDEX(version, '.', 1) AS UNSIGNED) DESC,
+                CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(version, '.', 2), '.', -1) AS UNSIGNED) DESC,
+                CAST(SUBSTRING_INDEX(version, '.', -1) AS UNSIGNED) DESC,
                 subset ASC
         ", $params);
 
@@ -276,5 +314,28 @@ class rex_fa_iconpicker
         }
 
         return $packages;
+    }
+
+    /**
+     * fixing src:url() pathes for given package
+     *
+     * @param string|null $variant
+     * @param string|null $version
+     * @param string|null $subset
+     * @return bool
+     * @author Peter Schulze | p.schulze[at]bitshifters.de
+     */
+    public static function fixFontSrcInCss(?string $variant, ?string $version, ?string $subset = null):bool {
+
+    }
+
+    /**
+     * fixing src:url() pathes in active package
+     *
+     * @return bool
+     * @author Peter Schulze | p.schulze[at]bitshifters.de
+     */
+    public static function fixFontSrcInActiveCss():bool {
+        return self::fixFontSrcInCss(self::getActiveVariant(), self::getActiveVersion(), self::getActiveSubset());
     }
 }

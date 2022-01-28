@@ -19,8 +19,8 @@ $faIconPickerSettings = [
     'close-with-button'     => false,
     // single or multiple icons per input
     'multiple'              => false,
-    // allowed weight to see and pick (L = Light, R = Regular, S = Solid, D = Duotone, B = Brand) - concat in 1 string
-    'weights'               => 'LRSDB',
+    // allowed weight to see and pick (T = Thin, L = Light, R = Regular, S = Solid, D = Duotone, B = Brand) - concat in 1 string
+    'weights'               => 'TLRSDB',
     // on icon select, add font weight class (for example "far" or "fad")
     'add-weight'            => false,
     // font weight in picker matrix

@@ -32,7 +32,7 @@ fa_iconpicker_config_close-with-button = Schließen über Button statt über Ico
 fa_iconpicker_config_movable = Picker verschiebbar [Doppelklick für Reset]
 fa_iconpicker_config_clear-target = Reset-Button anzeigen
 fa_iconpicker_config_multiple = Mehrfachauswahl [wirkt nur bei insert-value = "name"]
-fa_iconpicker_config_weights = Verfügbare Stile [L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
+fa_iconpicker_config_weights = Verfügbare Stile [T=Thin, L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
 fa_iconpicker_config_add-weight = Stil beim Einfügen ergänzen [wirkt nur bei insert-value = "name"]
 fa_iconpicker_config_preview-weight = Vorschau-Stil
 fa_iconpicker_config_insert-value = Feld, dessen Wert eingefügt wird [Standard: "Name"]
@@ -96,3 +96,11 @@ fa_iconpicker_dropzone_dictUploadCanceled = Upload abgebrochen.
 fa_iconpicker_dropzone_dictCancelUploadConfirmation = Sind Sie sicher, dass Sie diesen Upload abbrechen möchten?
 fa_iconpicker_dropzone_dictRemoveFile = Datei entfernen
 fa_iconpicker_dropzone_dictMaxFilesExceeded = Sie können keine weiteren Dateien hochladen.
+
+# MEDIA MANAGER
+fa_iconpicker_mm_name = font-awesome
+fa_iconpicker_mm_description = Ausgabe der aktuell konfigurierten FontAwesome CSS
+fa_iconpicker_mm_dropdown_name = FontAwesome Icon Picker: Pfad zum Frontend-CSS
+fa_iconpicker_mm_fontsrc_name = font-awesome-font-src
+fa_iconpicker_mm_fontsrc_description = Anpassung des Pfads der Schriftdateien (woff/eot/etc.) in der Paket-CSS
+fa_iconpicker_mm_fontsrc_dropdown_name = FontAwesome Icon Picker: Pfad zu den Schriftdateien in der Paket-CSS

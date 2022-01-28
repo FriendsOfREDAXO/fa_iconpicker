@@ -1,9 +1,10 @@
 # Font Awesome Icon Picker
 
-Icon-Picker für Font Awesome ab Version 5. 
+Icon-Picker für Font Awesome **ab Version 5** und mit Unterstützung für **Version 6 bis einschließlich Beta 1**.
 
-![Screenshot](https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true)
+<img alt="Screenshot" height="auto" src="https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true" width="800px"/>
 
+<hr />
 
 Der Iconpicker wird an Text-Eingabefelder angebunden. Beim Klick öffnet sich ein **Picker Widget**. Anschließend werden die Icons des **aktuell eingestellten
  Pakets** dynamisch nachgeladen. Über die Einstellungen zu Zeilen und Spalten im Picker Widget kann der Picker beim Scrollen kalkulieren, welche Seite vom
@@ -113,7 +114,7 @@ Die Einstellungen werden über HTML-Attribute mit dem Schema `data-fa-X="VALUE"`
 * `details-on-hover` - Bei Mouseover über ein Icon wird ein komplexer Tooltip mit mehr Infos gezeigt und das Icon in den erlaubten Schriftschnitten (siehe `weights`) abgebildet [0, 1]
 * `close-with-button` - Schließen wird nur explizit über einen Close Button oben rechts im Picker Widget durchgeführt [0, 1]
 * `multiple` - erlaubt Mehrfach-Auswahl [0, 1]
-* `weights` - Verfügbare Schriftschnitte als zusammenhängender String (l = Light, r = Regular, s = Solid, d = Duotone, b = Brand), Bsp. `ldb` blendet die Vorschauen für Light, Duotone und Brand Icons ein und erlaubt auch deren Auswahl, wenn `add-weight` = 1 ist
+* `weights` - Verfügbare Schriftschnitte als zusammenhängender String (t = thin, l = Light, r = Regular, s = Solid, d = Duotone, b = Brand), Bsp. `ldb` blendet die Vorschauen für Light, Duotone und Brand Icons ein und erlaubt auch deren Auswahl, wenn `add-weight` = 1 ist
 * `add-weight` - fügt bei Auswahl eines Icons nicht nur den Namen des Icons ein (bspw. `fa-user`) sondern auch den aktuell eingestellten
  Schriftschnitt (Beispiel-Ergebnis: `fas fa-user` wenn aktuell der `solid`-Schriftschnitt ausgewählt war) [0, 1]
 * `preview-weight` - fügt bei Auswahl eines Icons nicht nur den Namen des Icons ein (bspw. `fa-user`) sondern auch den aktuell eingestellten
@@ -142,3 +143,9 @@ Die Einstellungen werden über HTML-Attribute mit dem Schema `data-fa-X="VALUE"`
 * Preview-Overlay bei Mouseover über Icon-Value im Text-Feld > zeigt, wie das aktuell gesetzte Icon aussieht ohne den Picker zu öffnen
 * evtl. Webfont-URL in den .css-Files manipulieren, sodass der korrekte absolute Pfad eingetragen wird. Damit wären _"elegantere"_ Einbindungen im FE möglich, ohne den Speicherort der Paketdaten offen zu legen (via index.php mit URL-Params)
 * FA6 Support sobald finale Package-Struktur releast ist
+
+<br />
+<div class="alert alert-danger">Der Release von <b>FA Version 6</b> steht aktuell hinter einem großen Fragezeichen.
+Im Oktober 2021 entschied man sich, den <code>/metadata/</code>-Ordner aus den FA6-Archiven zu entfernen und
+stattdessen auf die offizielle GraphQL-API zu verweisen. Gegenwärtig ist FA6 daher nur bis zur Version <b>beta 1</b>
+unterstützt. Ihr könnt diese <a href="https://fontawesome.com/releases/6.0.0-beta1/web/download">hier</a> herunterladen.</div>

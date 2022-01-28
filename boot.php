@@ -4,6 +4,11 @@
 rex_perm::register("fa_iconpicker[picker]", "Icon-Pickers: Nutzung des Widgets", rex_perm::GENERAL);
 rex_perm::register("fa_iconpicker[settings]", "Icon-Picker: Einstellungen & Management der Pakete", rex_perm::GENERAL);
 
+if (rex_addon::get('media_manager')->isAvailable()) {
+    rex_media_manager::addEffect(rex_effect_font_awesome_path::class);
+    rex_media_manager::addEffect(rex_effect_font_awesome_fontsrc_path::class);
+}
+
 // include current active set
 if (rex::isBackend()) {
     // push translation data for init function to use it
@@ -64,14 +69,6 @@ if (rex::isBackend()) {
 
     // add current package if existing
     if(!is_null(rex_fa_iconpicker::getCssPath())) {
-        rex_view::addCssFile(rex_fa_iconpicker::getCssUrl());
-    }
-}
-// FE output
-else {
-    if(rex_get("rex_fa_iconpicker", "string") == "css") {
-        rex_response::setHeader("Content-Type", "text/css");
-        rex_response::sendContent(rex_file::get(rex_fa_iconpicker::getCssPath()));
-        exit();
+        rex_view::addCssFile('./index.php?rex_media_type='.rex_i18n::msg('fa_iconpicker_mm_name').'&rex_media_file='.rex_fa_iconpicker::getActiveCssFileName());
     }
 }

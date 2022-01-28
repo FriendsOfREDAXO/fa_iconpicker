@@ -127,8 +127,12 @@ ob_start();
             echo '<tr><td colspan="4"><br /><center><i>'.rex_i18n::msg("fa_iconpicker_info_nopackages_pro").'</i></center></td></tr>';
         } else {
             foreach($proPackages as $pack) {
+                $version = explode(".", $pack->getVersion());
+                $version[0] = '<span class="version v-'.$version[0].'">'.$version[0].'</span>';
+                $version = implode(".", $version);
+
                 echo '<tr '.($activeVersion == $pack->getVersion() && $activeVariant == $pack->getVariant() && $activeSubset === $pack->getSubset() ? 'class="active"' : '').'>
-                        <td class="title">'.$pack->getVersion().'</td>
+                        <td class="title">'.$version.'</td>
                         <td class="icons">'.
                             count($pack->getIcons()).
                             (!is_null($pack->getSubset()) ? '<span class="subset" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_packages_subset").'">S</span>' : '').
@@ -187,8 +191,12 @@ ob_start();
                 echo '<tr><td colspan="4"><br /><center><i>'.rex_i18n::msg("fa_iconpicker_info_nopackages_free").'</i></center></td></tr>';
             } else {
                 foreach($freePackages as $pack) {
+                    $version = explode(".", $pack->getVersion());
+                    $version[0] = '<span class="version v-'.$version[0].'">'.$version[0].'</span>';
+                    $version = implode(".", $version);
+
                     echo '<tr '.($activeVersion == $pack->getVersion() && $activeVariant == $pack->getVariant() && $activeSubset === $pack->getSubset() ? 'class="active"' : '').'>
-                            <td class="title">'.$pack->getVersion().'</td>
+                            <td class="title">'.$version.'</td>
                             <td class="icons">'.
                                 count($pack->getIcons()).
                                 (!is_null($pack->getSubset()) ? '<span class="subset" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_packages_subset").'">S</span>' : '').

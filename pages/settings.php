@@ -59,7 +59,7 @@ foreach($faIconPickerSettings as $key => $setting) {
                     $field = $form->addSelectField("widget-".$key);
                     $select = $field->getSelect();
 
-                    foreach (['L' => 'Light', 'R' => 'Regular', 'S' => 'Solid', 'D' => 'Duotone', 'B' => 'Brand'] as $val => $label) {
+                    foreach (['T' => 'Thin', 'L' => 'Light', 'R' => 'Regular', 'S' => 'Solid', 'D' => 'Duotone', 'B' => 'Brand'] as $val => $label) {
                         $select->addOption($label, $val);
                     }
                     break;

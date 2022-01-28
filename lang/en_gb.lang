@@ -31,7 +31,7 @@ fa_iconpicker_config_close-with-button = close via button instead of icon select
 fa_iconpicker_config_movable = make picker movable [double click to reset]
 fa_iconpicker_config_clear-target = show reset button
 fa_iconpicker_config_multiple = multiple selection [only works with insert-value = "name"]
-fa_iconpicker_config_weights = available styles [L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
+fa_iconpicker_config_weights = available styles [T=Thin, L=Light, R=Regular, S=Solid, D=Duotone, B=Brand]
 fa_iconpicker_config_add-weight = add style on insertion [only works with insert-value = "name"]
 fa_iconpicker_config_preview-weight = preview style
 fa_iconpicker_config_insert-value = field value to insert into target field [default: "name"]
@@ -95,3 +95,8 @@ fa_iconpicker_dropzone_dictUploadCanceled = Upload canceled.
 fa_iconpicker_dropzone_dictCancelUploadConfirmation = Are you sure you want to cancel this upload?
 fa_iconpicker_dropzone_dictRemoveFile = Remove file
 fa_iconpicker_dropzone_dictMaxFilesExceeded = You can not upload any more files.
+
+# MEDIA MANAGER
+fa_iconpicker_mm_name = font-awesome
+fa_iconpicker_mm_description = Output of current FontAwesome CSS path
+fa_iconpicker_mm_dropdown_name = FontAwesome Icon Picker: Path to frontend CSS
