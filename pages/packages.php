@@ -141,7 +141,7 @@ ob_start();
                         <td class="actions">';
 
                 if($activeVersion != $pack->getVersion() || $activeVariant != $pack->getVariant()  || $activeSubset !== $pack->getSubset()) {
-                    echo '<form action="/redaxo/index.php?page='.rex_be_controller::getCurrentPage().'" method="post">
+                    echo '<form action="'.rex_url::currentBackendPage().'" method="post">
                               <button class="btn btn-primary" name="make-active" value="1" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_action_makedefault").'"><i class="rex-icon fa-check"></i></button>
                               <button class="btn btn-delete cancel" name="delete" value="1" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_action_delete").'"><i class="rex-icon fa-trash"></i></button>
                               <input type="hidden" name="variant" value="'.$pack->getVariant().'" />
@@ -205,7 +205,7 @@ ob_start();
                             <td class="actions">';
 
                     if($activeVersion != $pack->getVersion() || $activeVariant != $pack->getVariant() || $activeSubset !== $pack->getSubset()) {
-                        echo '<form action="/redaxo/index.php?page='.rex_be_controller::getCurrentPage().'" method="post">
+                        echo '<form action="'.rex_url::currentBackendPage().'" method="post">
                                   <button class="btn btn-primary" name="make-active" value="1" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_action_makedefault").'"><i class="rex-icon fa-check"></i></button>
                                   '.(count($freePackages) > 1 ?
                                     '<button class="btn btn-delete cancel" name="delete" value="1" data-toggle="tooltip" data-placement="top" title="'.rex_i18n::msg("fa_iconpicker_action_delete").'"><i class="rex-icon fa-trash"></i></button>' :
@@ -240,7 +240,7 @@ echo '<div class="col-md-4">'.$fragment->parse('core/page/section.php').'</div>'
 
 // upload packages
 $upload = '
-<form action="/redaxo/index.php?page='.rex_be_controller::getCurrentPage().'" class="dropzone files-container" id="fa-picker-upload">
+<form action="'.rex_url::currentBackendPage().'" class="dropzone files-container" id="fa-picker-upload">
 	<div class="fallback">
 		<input name="rex-fa-file" type="file" multiple />
 		<br />
