@@ -1,6 +1,14 @@
 Changelog
 =========
 
+Version 1.1.2 - 18.02.2022
+--------------------------
+
+* Pfad-Korrektur für aktives CSS-File, wenn Subset ausgewählt ist
+* Backend-Formulare mit korrigierter Form-Action verhindert Probleme mit Installationen in Unterordnern (Packages Page)
+
+> Bitte nach der Installation / dem Update Cache löschen!
+
 Version 1.1.1 - 28.01.2022
 --------------------------
 

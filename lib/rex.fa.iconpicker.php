@@ -178,7 +178,8 @@ class rex_fa_iconpicker
      * @author Peter Schulze | p.schulze[at]bitshifters.de
      */
     public static function getActiveCssFileName(): ?string {
-        $basePath = rex_fa_package::PACKAGE_PATH.self::getActiveVariant().DIRECTORY_SEPARATOR.self::getActiveVariant()."-".self::getActiveVersion();
+        $basePath = rex_fa_package::PACKAGE_PATH.self::getActiveVariant().DIRECTORY_SEPARATOR.self::getActiveVariant()."-".self::getActiveVersion().
+                    (self::getActiveSubset() != "" ? "-".self::getActiveSubset() : "");
 
         if(file_exists(rex_path::data($basePath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.self::ALL_MIN_CSS))) {
             return self::ALL_MIN_CSS;
