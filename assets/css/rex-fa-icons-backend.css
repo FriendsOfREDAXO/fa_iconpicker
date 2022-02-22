@@ -831,3 +831,14 @@
     width: calc(var(--fa-iconpicker-button-size) + 6px);
     height: calc(var(--fa-iconpicker-button-size) + 6px);
 }
+
+
+/* dark theme */
+
+#rex-page-fa-iconpicker-packages.rex-theme-dark .rex-fa-packages-wrapper tr.active td {
+    color: #000;
+}
+
+#rex-page-fa-iconpicker-packages.rex-theme-dark form.dropzone button.dz-button {
+    color: #000;
+}
