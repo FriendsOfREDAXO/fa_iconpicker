@@ -142,4 +142,3 @@ Die Einstellungen werden über HTML-Attribute mit dem Schema `data-fa-X="VALUE"`
 * Extension Points für REX API Rückgaben (überhaupt möglich?)
 * Preview-Overlay bei Mouseover über Icon-Value im Text-Feld > zeigt, wie das aktuell gesetzte Icon aussieht ohne den Picker zu öffnen
 * evtl. Webfont-URL in den .css-Files manipulieren, sodass der korrekte absolute Pfad eingetragen wird. Damit wären _"elegantere"_ Einbindungen im FE möglich, ohne den Speicherort der Paketdaten offen zu legen (via index.php mit URL-Params)
-* FA6 Support sobald finale Package-Struktur releast ist
