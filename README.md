@@ -1,6 +1,6 @@
 # Font Awesome Icon Picker
 
-Icon-Picker für Font Awesome **ab Version 5** und mit Unterstützung für **Version 6 bis einschließlich Beta 1**.
+**Icon-Picker für Font Awesome 5.x und 6.x**.
 
 <img alt="Screenshot" height="auto" src="https://github.com/FriendsOfREDAXO/fa_iconpicker/blob/assets/icon_screen.png?raw=true" width="800px"/>
 
@@ -143,9 +143,3 @@ Die Einstellungen werden über HTML-Attribute mit dem Schema `data-fa-X="VALUE"`
 * Preview-Overlay bei Mouseover über Icon-Value im Text-Feld > zeigt, wie das aktuell gesetzte Icon aussieht ohne den Picker zu öffnen
 * evtl. Webfont-URL in den .css-Files manipulieren, sodass der korrekte absolute Pfad eingetragen wird. Damit wären _"elegantere"_ Einbindungen im FE möglich, ohne den Speicherort der Paketdaten offen zu legen (via index.php mit URL-Params)
 * FA6 Support sobald finale Package-Struktur releast ist
-
-<br />
-<div class="alert alert-danger">Der Release von <b>FA Version 6</b> steht aktuell hinter einem großen Fragezeichen.
-Im Oktober 2021 entschied man sich, den <code>/metadata/</code>-Ordner aus den FA6-Archiven zu entfernen und
-stattdessen auf die offizielle GraphQL-API zu verweisen. Gegenwärtig ist FA6 daher nur bis zur Version <b>beta 1</b>
-unterstützt. Ihr könnt diese <a href="https://fontawesome.com/releases/6.0.0-beta1/web/download">hier</a> herunterladen.</div>
