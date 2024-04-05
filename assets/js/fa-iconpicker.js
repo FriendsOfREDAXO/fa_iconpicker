@@ -1168,7 +1168,7 @@ $(document).on('rex:ready', function (e, container) {
 Dropzone.options.faPickerUpload = {
     timeout: 120000,
     maxFiles: 5,
-    maxFilesize: 50,
+    maxFilesize: 100,
     acceptedFiles: ".zip",
     // previewsContainer: "#previews",
     clickable: true,
