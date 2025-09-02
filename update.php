@@ -1,5 +1,9 @@
 <?php
 
+// include necessary class files
+require_once __DIR__ . '/lib/rex.fa.package.php';
+require_once __DIR__ . '/lib/rex.fa.iconpicker.php';
+
 // check if mm type already installed, else add
 $mmEffect = rex_sql::factory()->getArray("SELECT id FROM ".rex::getTable('media_manager_type')." WHERE name = :name", [':name' => "font-awesome"]);
 
